@@ -2,52 +2,169 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>告别信</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
+<title>再见了，朋友们</title>
 <style>
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    background-color: #f0f2f5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
-  .container {
-    max-width: 700px;
-    padding: 40px 20px;
-    background-color: #ffffff;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    border-radius: 12px;
-    text-align: center;
-  }
-  h1 {
-    font-size: 2em;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  p {
-    font-size: 1.1em;
-    color: #555;
-    line-height: 1.6;
-    max-height: 300px;
-    overflow-y: auto;
-  }
-  /* 简洁时尚的按钮或其他元素可以在这里添加 */
+html,body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Roboto', Arial, sans-serif;
+  background: #181d24;
+  overflow: hidden;
+  min-height: 100vh;
+  min-width: 100vw;
+  position: relative;
+}
+
+/* 背景视频样式，科技感微弱模糊 */
+.bg-video {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  object-fit: cover;
+  filter: brightness(0.7) blur(3px) grayscale(30%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* 内容布局优化，适配手机 */
+.container {
+  position: relative;
+  z-index: 2;
+  margin: 0 auto;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(40,46,56,0.82);
+  box-shadow: 0 6px 32px rgba(52,181,246,0.13);
+  border-radius: 18px;
+  max-width: 92vw;
+  padding: 32px 20px 22px 20px;
+  text-align: center;
+  border: 1.5px solid rgba(52,181,246,0.12);
+  backdrop-filter: blur(2px);
+  animation: fadeIn 1s;
+}
+@keyframes fadeIn {from{opacity:0;}to{opacity:1;}}
+
+h1 {
+  font-size: 1.6em;
+  line-height: 1.3;
+  color: #fff;
+  margin-bottom: 20px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-shadow:0 2px 8px #35bbf7c0;
+}
+p {
+  color: #dbe9ff;
+  font-size: 1em;
+  line-height: 1.75;
+  margin: 0;
+  text-align: left;
+  max-height: 250px;
+  overflow-y: auto;
+  background: rgba(35,42,55,0.2);
+  border-radius: 8px;
+  padding:10px 5px;
+}
+::-webkit-scrollbar {width: 0;}
+
+@media (max-width: 620px) {
+  .container {padding: 20px 5vw 16px 5vw;}
+  h1 {font-size: 1.15em;}
+  p {font-size: 0.97em;}
+}
+
+.music-toggle {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1.2px solid #37bbf7cc;
+  background: rgba(30,37,51,0.9);
+  box-shadow: 0 2px 12px #37bbf733;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s, box-shadow .2s;
+}
+.music-toggle:active {
+  background: rgba(52,114,181,0.7);
+  box-shadow: 0 2px 20px #37bbf766;
+}
+.music-toggle svg {
+  width: 28px; height: 28px;
+  fill: #37bbf7;
+  transition: fill .2s;
+}
+.music-toggle.paused svg {
+  fill:#d0d5e0;
+}
 </style>
 </head>
 <body>
+<!-- 视频背景资源（替换为你的mp4地址） -->
+<video class="bg-video" src="your-video.mp4" autoplay muted loop playsinline preload="auto"></video>
+<!-- 音乐资源（替换为你的mp3地址）-->
+<audio id="bgm" src="your-music.mp3" autoplay loop hidden></audio>
 
 <div class="container">
   <h1>再见了，朋友们</h1>
   <p>
-    这里是你的告别内容，可以写上200个字左右的话语。你可以表达你的感受、祝福，或者未来的期待。内容示例：
-    <br><br>
-    亲爱的朋友们，感谢你们陪伴我走过这段时光。虽然即将分别，但我相信我们的友谊会永远留在心中。未来的日子里，无论身处何方，希望大家都能快乐健康，追逐自己的梦想。不管未来如何变迁，我会一直记得这段美好的回忆，祝福大家一切顺利。再见！
+    亲爱的伙伴们，感谢大家一直以来的支持与陪伴。时光匆匆，成长路上我们共同见证了彼此的进步与青春。分别不代表终结，而是新的起点。<br>
+    希望大家未来坦途顺达，心想事成，人生精彩不断。无论身处何方，这段回忆将永远珍藏在心里。我们终将再次相遇，愿那时你我都能微笑面对。再见啦，祝福永远陪伴各位！
   </p>
-</div>
 
+  <!-- 播放/暂停角标按钮，点击切换 -->
+  <button class="music-toggle" id="musicBtn" title="播放/暂停背景音乐">
+    <!-- 播放图标 -->
+    <svg id="playIcon" viewBox="0 0 30 30">
+      <polygon points="7,5 25,15 7,25"/>
+    </svg>
+    <!-- 暂停图标（开始隐藏） -->
+    <svg id="pauseIcon" viewBox="0 0 30 30" style="display:none;">
+      <rect x="8" y="7" width="4" height="16"/>
+      <rect x="18" y="7" width="4" height="16"/>
+    </svg>
+  </button>
+</div>
+<script>
+const bgm = document.getElementById('bgm');
+const btn = document.getElementById('musicBtn');
+const playIcon = document.getElementById('playIcon');
+const pauseIcon = document.getElementById('pauseIcon');
+
+// 保证自动播放
+document.addEventListener('touchstart',function(){bgm.play()}, {once:true});
+
+function updateBtn() {
+  if(bgm.paused){
+    playIcon.style.display="";
+    pauseIcon.style.display="none";
+    btn.classList.add("paused");
+  }else{
+    playIcon.style.display="none";
+    pauseIcon.style.display="";
+    btn.classList.remove("paused");
+  }
+}
+btn.onclick = function() {
+  if(bgm.paused) { bgm.play(); }
+  else { bgm.pause(); }
+  updateBtn();
+};
+
+// 初始化按钮
+document.addEventListener('DOMContentLoaded', updateBtn);
+// 音频 pause/play 状态监听
+bgm.onplay = bgm.onpause = updateBtn;
+</script>
 </body>
 </html>
